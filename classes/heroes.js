@@ -15,7 +15,6 @@ class Heroes {
 		return new Promise(async (resolve, reject) => {
 			this.path = `${this.basePath}`;
 			let result = await this.openDota.request(this.path, options);
-			console.log(result);
 			resolve(result);
 		});
 	}

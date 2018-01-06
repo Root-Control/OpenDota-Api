@@ -7,7 +7,6 @@ class Items {
 
 	getItems() {
 		return new Promise(async (resolve, reject) => {
-			console.log(items);
 			resolve(items);
 		});
 	}
