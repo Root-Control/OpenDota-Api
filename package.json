@@ -1,0 +1,22 @@
+{
+  "name": "OpenDota-Api",
+  "version": "0.0.1",
+  "description": "Wrapper from opendota",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wrapper",
+    "dota2",
+    "api",
+    "heroes"
+  ],
+  "author": "Root-Control",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "query-string": "^5.0.1",
+    "request": "^2.83.0"
+  }
+}
