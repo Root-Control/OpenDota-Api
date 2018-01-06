@@ -80,3 +80,5 @@ class openDota {
 		return this.Players.getRankingsByPlayer(account_id, options);
 	}
 }
+
+module.exports = openDota;

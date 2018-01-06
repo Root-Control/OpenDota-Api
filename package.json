@@ -1,5 +1,5 @@
 {
-  "name": "OpenDota-Api",
+  "name": "opendota-api",
   "version": "0.0.1",
   "description": "Wrapper from opendota",
   "main": "index.js",
