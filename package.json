@@ -1,6 +1,6 @@
 {
   "name": "opendota-api",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Wrapper from opendota",
   "main": "index.js",
   "scripts": {

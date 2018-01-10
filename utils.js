@@ -12,4 +12,4 @@ module.exports.parseUrl = function(path, options) {
 	let query = queryString.stringify(options);
 	let url = `${baseUrl}${path}${querystringdelimiter}${query}`;
 	return url;
-}
+};
