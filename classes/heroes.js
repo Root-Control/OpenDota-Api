@@ -4,8 +4,8 @@ const openDota = require('../requests');
 class Heroes {
 	constructor() {
 		this.openDota = openDota;
-		this.basePath = '/api/heroes';
-		this.path = '';
+		this.basePath = 'https://api.opendota.com';
+		this.path = '/api/heroes';
 	}
 
 	getHeroes(options) {
@@ -13,8 +13,8 @@ class Heroes {
 		//	https://docs.opendota.com/#tag/heroes%2Fpaths%2F~1heroes%2Fget
 		options = {};
 		return new Promise(async (resolve, reject) => {
-			this.path = `${this.basePath}`;
-			let result = await this.openDota.request(this.path, options);
+			let url = `${this.basePath}${this.path}`;
+			let result = await this.openDota.request(url, options);
 			resolve(result);
 		});
 	}

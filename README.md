@@ -1,7 +1,9 @@
 # USAGE
 
+```js
 const Dota = require('opendota-api');
 let dota = new Dota();
+```
 
 # Available functions
 
@@ -10,15 +12,18 @@ Return all dota 2 heroes with identifier.
 
 //  With Async/await functions
 
+```js
 async function list() {
- let heroes = await listHeroes();
+ let heroes = await dota.listHeroes();
  console.log(heroes);
  // doStuff
 }
+```
 
 //  Without Async/await functions
 
-listHeroes()
+```js
+dota.listHeroes()
   .then(function(response) {
       console.log(response);
       //  Dostuff
@@ -26,6 +31,7 @@ listHeroes()
   .catch(function(err) {
       console.log(err);
   });
+```
 
 
 ##  AVAILABLE FUNCTIONS
