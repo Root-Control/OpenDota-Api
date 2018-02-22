@@ -84,26 +84,27 @@ class openDota {
 	}
 
 	async getRealTimeStats(account_id) {
-		let response;
-		let result;
-		let data = await this.Live.getBroadcasterInfo(account_id);
-		if(data.live) {
-			let dataInterval = setInterval( async () => {
-				response = await this.Live.getRealTimeStats(data.server_steam_id);
-				if(!_.isEmpty(response)) {
-					result = { available: true, data: response };
-					clearInterval(dataInterval);
-					return result;
-				} else {
-					console.log('vacio');
-				}
-			}, 2000);
-		} 
-		else {
-			result = { available: false };
-			return result;
-		}
-		
+		return new Promise(async resolve => {
+			let response;
+			let result;
+			let data = await this.Live.getBroadcasterInfo(account_id);
+			if(data.live) {
+				let dataInterval = setInterval( async () => {
+					response = await this.Live.getRealTimeStats(data.server_steam_id);
+					if(!_.isEmpty(response)) {
+						result = { available: true, data: response };
+						clearInterval(dataInterval);
+						resolve(result);
+					} else {
+						console.log('Pulling new data');
+					}
+				}, 2000);
+			} 
+			else {
+				result = { available: false };
+				resolve(result);
+			}
+		});		
 	};
 }
 
