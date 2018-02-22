@@ -4,6 +4,7 @@ const Items = require('./classes/items');
 const Heroes = require('./classes/heroes');
 const Matches = require('./classes/matches');
 const Players = require('./classes/players');
+const _ = require('lodash');
 
 class openDota {
 	constructor(data) {
@@ -83,9 +84,26 @@ class openDota {
 	}
 
 	async getRealTimeStats(account_id) {
+		let response;
+		let result;
 		let data = await this.Live.getBroadcasterInfo(account_id);
-		if(data.live) return await this.Live.getRealTimeStats(data.server_steam_id);
-		else return { available: false };
+		if(data.live) {
+			let dataInterval = setInterval( async () => {
+				response = await this.Live.getRealTimeStats(data.server_steam_id);
+				if(!_.isEmpty(response)) {
+					result = { available: true, data: response };
+					clearInterval(dataInterval);
+					return result;
+				} else {
+					console.log('vacio');
+				}
+			}, 2000);
+		} 
+		else {
+			result = { available: false };
+			return result;
+		}
+		
 	};
 }
 
